@@ -17,12 +17,13 @@ export default function Header(){
     `;
 
     return(
-        <header className="flex justify-between items-center m-4 md:m-7 max-w-full">
-            <div className="flex justify-start gap-6 items-center fixed top-8">
+        <div className='bg-slate-200 fixed w-full h-18'>
+        <header className=" flex justify-between items-center md:m-7 mt-4">
+            <div className="flex justify-start gap-6 items-center" >
                 <img src={logo} className="cursor-pointer"></img>
                 <h3 className="md:text-3xl text-xl font-bold font-title cursor-pointer ">TaskSphere</h3>
             </div>
-            <nav>
+            <nav className=''>
             <ul className={ulClassList}>
                 <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
                     <a href="#">Home</a>
@@ -46,12 +47,13 @@ export default function Header(){
             <div>
             { toggle ? 
             <ImCross 
-            className='text-black text-2xl cursor-pointer block md:hidden absolute top-8 right-6' 
+            className='text-black text-2xl cursor-pointer block md:hidden absolute top-4 right-6' 
             onClick={handleToggle}/> : 
             <FaBars 
-            className='text-black text-2xl cursor-pointer block md:hidden absolute top-8 right-6' 
+            className='text-black text-2xl cursor-pointer block md:hidden absolute top-4 right-6' 
             onClick={handleToggle}/>}
             </div>
         </header>
+        </div>
     );
 }
