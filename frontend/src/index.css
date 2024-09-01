@@ -10,7 +10,14 @@
 } */
 body{
   background-color: #e6e6e6;
+  overflow-x: hidden;
 }
 .service__bg{
   background-color: #e6e6e6
+}
+.login__container__color{
+  background-color: #ffffff;
+}
+.login__form__color{
+  background-color: #e6e6e6;
 }
