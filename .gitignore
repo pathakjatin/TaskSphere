@@ -1,6 +1,7 @@
 *.fig
 # Node modules
-/client/node_modules
+/frontend/node_modules
+/server
 /server/node_modules
 
 # Build output

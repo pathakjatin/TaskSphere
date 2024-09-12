@@ -1,4 +1,5 @@
 import logo from '../../../public/logo.svg';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import {FaBars } from 'react-icons/fa'
 import { ImCross } from "react-icons/im";
@@ -17,7 +18,7 @@ export default function Header(){
     `;
 
     return(
-        <div className='bg-slate-200 fixed w-full h-18'>
+        <div className='bg-slate-200 fixed w-full h-18 z-10'>
         <header className=" flex justify-between items-center md:m-7 mt-4">
             <div className="flex justify-start gap-6 items-center" >
                 <img src={logo} className="cursor-pointer"></img>
@@ -25,23 +26,33 @@ export default function Header(){
             </div>
             <nav className=''>
             <ul className={ulClassList}>
-                <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
-                    <a href="#">Home</a>
-                </li>
-                <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all  duration-300 ease-in-out'>
-                <a href="#">Services</a>
-                </li>
-                <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
-                <a href="#">About</a>
-                </li>
-                <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
-                    <a href="#">Contact</a>
-                </li>
-                <li className='cursor-pointer'>
-                    <button className="bg-black text-white px-6 py-1.5 rounded-lg hover:scale-125 transition-all  duration-300 ease-in-out">
-                        Login
-                    </button>
-                </li>
+                <NavLink to="/" className={({ isActive }) => (isActive ? "active__element" : "")}>
+                    <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
+                        Home
+                    </li>
+                </NavLink>
+                <NavLink to="/service" className={({ isActive }) => (isActive ? "active__element" : "")}>
+                    <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all  duration-300 ease-in-out'>
+                        Services
+                    </li>
+                </NavLink>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? "active__element" : "")}>
+                    <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
+                        About
+                    </li>
+                </NavLink>
+                <NavLink to="/contact" className={({ isActive }) => (isActive ? "active__element" : "")}>
+                    <li className='cursor-pointer text-gray-700 hover:text-black hover:scale-125 transition-all duration-300 ease-in-out'>
+                        Contact
+                    </li>
+                </NavLink>
+                <NavLink to="/login">
+                    <li className='cursor-pointer'>
+                        <button className="bg-black text-white px-6 py-1.5  rounded-lg hover:scale-125 transition-all  duration-300 ease-in-out">
+                            Login
+                        </button>
+                    </li>
+                </NavLink>
             </ul>    
             </nav>
             <div>

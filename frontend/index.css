@@ -21,3 +21,7 @@ body{
 .login__form__color{
   background-color: #e6e6e6;
 }
+.active__element{
+  color: #00bcd4;
+  text-shadow: 0 0 10px #ffffff;
+}
