@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+*{
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: 'Mabry';
+  src: url('./assets/font/MabryPro-Light.woff2') format('woff2'),
+      url('./assets/font/MabryPro-Medium.woff2') format('woff2'),
+      url('./assets/font/MabryPro-Regular.woff2') format('woff2'),
+      url('./assets/font/MabryPro-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: light;
+}
+body{
+  font-family: 'Mabry';
+  background-color: #040404;
+  color: #f6f6f6;
+}
