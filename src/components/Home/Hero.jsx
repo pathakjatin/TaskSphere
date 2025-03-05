@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SparklesCore from "../../ui/sparkles";
+import Button from "../TaskCreationPage/Button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const controls = useAnimation();
@@ -47,6 +49,9 @@ const Hero = () => {
 
         <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
+      <Button>
+        <Link to="/createtask">Get Started</Link>
+      </Button>
     </motion.div>
   );
 };

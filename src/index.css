@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-*{
-  padding: 0;
-  margin: 0;
-}
 @font-face {
   font-family: 'Mabry';
   src: url('./assets/font/MabryPro-Light.woff2') format('woff2'),

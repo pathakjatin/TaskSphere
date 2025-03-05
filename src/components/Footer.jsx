@@ -40,7 +40,7 @@ export function Footer() {
   ];
 
   return (
-    <div className="flex items-center justify-center h-[15rem] w-full">
+    <div className="flex items-center justify-center h-[14rem] w-full">
       <FloatingDock mobileClassName="translate-y-20" items={links} />
     </div>
   );
