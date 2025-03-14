@@ -24,4 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 *.env
-testModel.js
+*testModel.js
