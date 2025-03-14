@@ -22,7 +22,7 @@ export default function DashboardHeader() {
                 {/* Show user info if logged in */}
                 {currentUser && (
                     <div className="flex items-center gap-3">
-                        {console.log("Rendering image with URL:", currentUser.photoURL)}
+                        {/* {console.log("Rendering image with URL:", currentUser.photoURL)} */}
                         <img 
                             
                             src={currentUser.photoURL} 

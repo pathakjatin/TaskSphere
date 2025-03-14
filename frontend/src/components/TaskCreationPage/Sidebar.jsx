@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import Button from "./Button.jsx";
 
 export default function Sidebar({ onStartAddProject, projects, onSelectProject, selectedProjectId }) {
     return (
         <aside className="bg-white text-black min-h-screen w-1/5 p-8 rounded-r-xl shadow-3xl gap-4">
             <h1 className="md:text-xl text-center uppercase mb-8 font-bold">Your Projects</h1>
-            <div>
+            <div className="flex items-center gap-2">
                 <Button onClick={onStartAddProject}>+ New Project</Button>
             </div>
 
@@ -31,6 +32,13 @@ export default function Sidebar({ onStartAddProject, projects, onSelectProject, 
                     })}
                 </ul>
             )}
+                <div className="mt-4">
+                <Button>
+                    <Link to="/dashboard">
+                        Visit Dashboard
+                    </Link>
+                </Button>
+                </div>
         </aside>
     );
 }
