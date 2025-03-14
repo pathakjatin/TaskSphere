@@ -97,7 +97,6 @@ export default function TaskCreationPage() {
     let content = <SelectedProject 
                         projectId={projectState.selectedProjectId} // ✅ Pass only `projectId`
                         onDelete={handleDeleteProject}
-                        tasks={projectState.tasks}
                     />;
 
     if (projectState.selectedProjectId === null) {

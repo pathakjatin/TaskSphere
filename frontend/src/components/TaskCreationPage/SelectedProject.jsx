@@ -1,13 +1,12 @@
 import useProjectDetails from "../../hooks/useProjectDetails";
-import Tasks from "./tasks";
+import useProjectTasks from "../../hooks/useProjectTasks"; // ✅ Import tasks hook
+import Tasks from "./Tasks";
 
-export default function SelectedProject({ projectId, onDelete, onAddTask, onDeleteTask, tasks, onToggleComplete }) {
-    const { project, loading } = useProjectDetails(projectId);
-    // console.log("🟢 Selected project ID in component:", projectId);
-    // console.log("🟢 Project received:", project);
-    
+export default function SelectedProject({ projectId, onDelete }) {
+    const { project, loading: projectLoading } = useProjectDetails(projectId);
+    const { tasks, loading: tasksLoading, setTasks } = useProjectTasks(projectId); // ✅ Fetch tasks dynamically
 
-    if (loading) return <p className="text-white">Loading project...</p>;
+    if (projectLoading) return <p className="text-white">Loading project...</p>;
     if (!project) return <p className="text-red-500">Project not found.</p>;
 
     const formattedDate = project.dueDate 
@@ -18,16 +17,17 @@ export default function SelectedProject({ projectId, onDelete, onAddTask, onDele
         })
         : "No due date";
 
-    const projectTasks = tasks.filter((task) => task.projectId === project._id);
-    const totalTasks = projectTasks.length;
-    const completedTasks = projectTasks.filter((task) => task.completed).length;
+    const totalTasks = tasks.length;
+    const completedTasks = tasks.filter((task) => task.completed).length;
     const completionPercentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
     return (
         <div className="w-[35rem] mt-16">
             <header className="pb-4 mb-4 border-b-2 border-stone-600">
                 <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold text-stone-200 mb-2 underline">{project?.title || "No Title"}</h1>
+                    <h1 className="text-3xl font-bold text-stone-200 mb-2 underline">
+                        {project?.title || "No Title"}
+                    </h1>
                     <button
                         className="text-stone-200 hover:text-red-500 transition-colors duration-300 ease-in-out p-2 border-2 border-stone-100 rounded-md"
                         onClick={onDelete}
@@ -43,13 +43,17 @@ export default function SelectedProject({ projectId, onDelete, onAddTask, onDele
                     <p className="font-bold text-stone-300">Priority: {project?.priority || "No Priority"}</p>
                     <div className="flex items-center gap-4">
                         <div className="w-40 h-2 bg-gray-700 rounded-md overflow-hidden">
-                            <div className="h-full bg-green-500 transition-all duration-300" style={{ width: `${completionPercentage}%` }}></div>
+                            <div className="h-full bg-green-500 transition-all duration-300" 
+                                style={{ width: `${completionPercentage}%` }}
+                            ></div>
                         </div>
                         <p className="text-stone-300 text-sm">{Math.round(completionPercentage)}%</p>
                     </div>
                 </div>
             </header>
-            <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} onToggleComplete={onToggleComplete} />
+
+            {/* ✅ Pass projectId and setTasks to handle updates */}
+            <Tasks projectId={projectId} tasks={tasks} setTasks={setTasks} />
         </div>
     );
 }
